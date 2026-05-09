@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Seminario Antiguo Testamento 2026 – Asistencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #B8952A;
+    --gold-light: #F5E8BB;
+    --gold-mid: #D4AF50;
+    --gold-dark: #7A5E12;
+    --parch: #FDF9F0;
+    --parch2: #F5EDD6;
+    --parch3: #E6D9B4;
+    --parch4: #D9C98A;
+    --ink: #1E1408;
+    --ink2: #4A3418;
+    --ink3: #7A6040;
+    --ink4: #A08A60;
+    --red: #8B1A1A;
+    --green: #1A5C2A;
+    --green-bg: #EAF5EC;
+    --white: #FFFFFF;
+    --shadow: rgba(90,60,10,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--parch);
+    color: var(--ink);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(184,149,42,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(184,149,42,0.06) 0%, transparent 50%);
+  }
+
+  /* ─── HEADER ─── */
+  .page-header {
+    background: linear-gradient(160deg, #2C1A06 0%, #4A2E0A 60%, #6B4010 100%);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent, transparent 18px,
+      rgba(184,149,42,0.06) 18px, rgba(184,149,42,0.06) 19px
+    );
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold-mid), var(--gold), var(--gold-mid), transparent);
+  }
+  .header-emblem {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--gold-mid), var(--gold));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-size: 2rem;
+    box-shadow: 0 0 0 4px rgba(212,175,80,0.3), 0 8px 24px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+    line-height: 1.2;
+  }
+  .page-header .subtitle {
+    font-size: 0.9rem;
+    color: rgba(245,232,187,0.65);
+    margin-top: 0.5rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.06em;
+  }
+  .header-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .header-divider span {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-mid));
+  }
+  .header-divider span:last-child {
+    background: linear-gradient(90deg, var(--gold-mid), transparent);
+  }
+  .header-divider i {
+    color: var(--gold-mid);
+    font-size: 0.65rem;
+  }
+
+  /* ─── CONTAINER ─── */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  /* ─── NAME CARD ─── */
+  .name-card {
+    background: var(--white);
+    border: 1.5px solid var(--parch3);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 2px 12px var(--shadow);
+    animation: fadeSlideIn 0.4s ease both;
+  }
+  .name-card label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .input-wrap {
+    position: relative;
+  }
+  .input-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: var(--ink4);
+    pointer-events: none;
+  }
+  .name-card input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border: 1.5px solid var(--parch3);
+    border-radius: 10px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    background: var(--parch);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .name-card input[type="text"]:focus {
+    border-color: var(--gold-mid);
+    box-shadow: 0 0 0 3px rgba(212,175,80,0.2);
+    background: var(--white);
+  }
+  .name-card input[type="text"]::placeholder { color: var(--ink4); }
+
+  /* ─── SUMMARY ─── */
+  .summary-strip {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    animation: fadeSlideIn 0.4s 0.1s ease both;
+  }
+  .stat-box {
+    flex: 1;
+    background: var(--white);
+    border: 1.5px solid var(--parch3);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .stat-box .num {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    line-height: 1;
+    display: block;
+  }
+  .stat-box .lbl {
+    font-size: 0.78rem;
+    color: var(--ink3);
+    margin-top: 0.25rem;
+    line-height: 1.3;
+  }
+  .stat-box.highlight {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, #5A3A06 100%);
+    border-color: var(--gold-dark);
+  }
+  .stat-box.highlight .num { color: var(--gold-light); }
+  .stat-box.highlight .lbl { color: rgba(245,232,187,0.7); }
+
+  /* ─── MONTH BLOCKS ─── */
+  .month-block {
+    background: var(--white);
+    border: 1.5px solid var(--parch3);
+    border-radius: 16px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px var(--shadow);
+    animation: fadeSlideIn 0.4s ease both;
+  }
+  .month-header {
+    background: linear-gradient(90deg, var(--parch2) 0%, var(--parch) 100%);
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--parch3);
+    gap: 0.6rem;
+  }
+  .month-header .month-icon {
+    font-size: 1.1rem;
+  }
+  .month-header .month-name {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+  }
+  .month-header .month-progress {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .month-header .month-count {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink3);
+  }
+  .prog-bar-wrap {
+    width: 60px;
+    height: 5px;
+    background: var(--parch3);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .prog-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-mid), var(--gold));
+    border-radius: 99px;
+    transition: width 0.3s ease;
+  }
+
+  .sundays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 0.6rem;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .sunday-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid var(--parch3);
+    border-radius: 10px;
+    background: var(--parch);
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink2);
+    transition: all 0.15s ease;
+    text-align: left;
+    user-select: none;
+  }
+  .sunday-btn:hover {
+    border-color: var(--gold-mid);
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(184,149,42,0.2);
+  }
+  .sunday-btn.checked {
+    background: linear-gradient(135deg, rgba(212,175,80,0.18), rgba(184,149,42,0.12));
+    border-color: var(--gold);
+    color: var(--gold-dark);
+    font-weight: 600;
+  }
+  .check-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--parch4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--white);
+    transition: all 0.15s ease;
+  }
+  .sunday-btn.checked .check-circle {
+    background: var(--gold-dark);
+    border-color: var(--gold-dark);
+  }
+  .check-circle svg {
+    display: none;
+    width: 10px;
+    height: 10px;
+    stroke: #fff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+  .sunday-btn.checked .check-circle svg { display: block; }
+
+  .btn-date {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .btn-date .dow {
+    font-size: 0.7rem;
+    color: var(--ink4);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sunday-btn.checked .btn-date .dow { color: var(--gold); }
+
+  /* ─── ACTION SECTION ─── */
+  .action-section {
+    margin-top: 2rem;
+    animation: fadeSlideIn 0.4s 0.2s ease both;
+  }
+  .error-box {
+    display: none;
+    background: #FFF0F0;
+    border: 1.5px solid #F5AAAA;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--red);
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  .send-btn {
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    background: linear-gradient(135deg, #1A5C2A, #0F3A18);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(26,92,42,0.35);
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+  }
+  .send-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
+  }
+  .send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(26,92,42,0.45);
+  }
+  .send-btn:active { transform: translateY(0); }
+  .send-btn svg { flex-shrink: 0; position: relative; z-index: 1; }
+  .send-btn span { position: relative; z-index: 1; }
+
+  .footnote {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink4);
+    margin-top: 0.85rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* ─── SUCCESS TOAST ─── */
+  .toast {
+    display: none;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    z-index: 999;
+    white-space: nowrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .toast.show { display: flex; animation: toastIn 0.3s ease; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 540px) {
+    .page-header { padding: 2.5rem 1.25rem 2rem; }
+    .summary-strip { flex-direction: column; }
+    .sundays-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 1.5rem 1rem 3rem; }
+  }
+  @media (max-width: 360px) {
+    .sundays-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-emblem">📖</div>
+  <h1>Seminario<br/>Antiguo Testamento</h1>
+  <p class="subtitle">Registro de Asistencia · 2026</p>
+  <div class="header-divider">
+    <span></span>
+    <i>✦</i>
+    <i>✦</i>
+    <i>✦</i>
+    <span></span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- NOMBRE -->
+  <div class="name-card">
+    <label>Tu nombre completo</label>
+    <div class="input-wrap">
+      <span class="input-icon">👤</span>
+      <input type="text" id="nombre" placeholder="Escribe tu nombre aquí..." autocomplete="name" />
+    </div>
+  </div>
+
+  <!-- RESUMEN -->
+  <div class="summary-strip">
+    <div class="stat-box highlight">
+      <span class="num" id="total-marcados">0</span>
+      <div class="lbl">Domingos<br/>marcados</div>
+    </div>
+    <div class="stat-box">
+      <span class="num" id="total-posible">22</span>
+      <div class="lbl">Domingos<br/>en total</div>
+    </div>
+    <div class="stat-box">
+      <span class="num" id="pct-asist">0%</span>
+      <div class="lbl">Porcentaje<br/>asistencia</div>
+    </div>
+  </div>
+
+  <!-- CALENDARIO POR MES -->
+  <div id="months-container"></div>
+
+  <!-- ENVIAR -->
+  <div class="action-section">
+    <div class="error-box" id="error-box">⚠️ <span id="error-text"></span></div>
+    <button class="send-btn" onclick="enviar()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.287.13.332.202.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+      </svg>
+      <span>Enviar registro por WhatsApp</span>
+    </button>
+    <p class="footnote">
+      Al presionar enviar, WhatsApp se abrirá con tu registro detallado listo para enviar.<br/>
+      Asegúrate de haber marcado todos los domingos que asististe.
+    </p>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  ✅ ¡Registro enviado correctamente!
+</div>
+
+<script>
+// ── DATOS ──────────────────────────────────────────────
+// ⚠️  CAMBIA este número por tu WhatsApp real (con código de país, sin +)
+const WHATSAPP_NUMBER = "59169756872";
+
+const MESES = {
+  "Febrero": [
+    { label: "2 de febrero",   fecha: "2026-02-02" },
+    { label: "8 de febrero",   fecha: "2026-02-08" },
+    { label: "15 de febrero",  fecha: "2026-02-15" },
+    { label: "22 de febrero",  fecha: "2026-02-22" }
+  ],
+  "Marzo": [
+    { label: "1 de marzo",     fecha: "2026-03-01" },
+    { label: "8 de marzo",     fecha: "2026-03-08" },
+    { label: "15 de marzo",    fecha: "2026-03-15" },
+    { label: "22 de marzo",    fecha: "2026-03-22" },
+    { label: "29 de marzo",    fecha: "2026-03-29" }
+  ],
+  "Abril": [
+    { label: "5 de abril",     fecha: "2026-04-05" },
+    { label: "12 de abril",    fecha: "2026-04-12" },
+    { label: "19 de abril",    fecha: "2026-04-19" },
+    { label: "26 de abril",    fecha: "2026-04-26" }
+  ],
+  "Mayo": [
+    { label: "3 de mayo",      fecha: "2026-05-03" },
+    { label: "10 de mayo",     fecha: "2026-05-10" },
+    { label: "17 de mayo",     fecha: "2026-05-17" },
+    { label: "24 de mayo",     fecha: "2026-05-24" },
+    { label: "31 de mayo",     fecha: "2026-05-31" }
+  ],
+  "Junio": [
+    { label: "7 de junio",     fecha: "2026-06-07" },
+    { label: "14 de junio",    fecha: "2026-06-14" },
+    { label: "21 de junio",    fecha: "2026-06-21" },
+    { label: "28 de junio",    fecha: "2026-06-28" }
+  ]
+};
+
+const ICONS = {
+  "Febrero": "❄️", "Marzo": "🌿", "Abril": "🌸", "Mayo": "☀️", "Junio": "🌺"
+};
+
+// ── ESTADO ──────────────────────────────────────────────
+const marcados = new Set();
+let totalPosible = 0;
+
+// ── CONSTRUIR UI ────────────────────────────────────────
+function buildUI() {
+  const container = document.getElementById('months-container');
+  let total = 0;
+
+  Object.entries(MESES).forEach(([mes, dias], idx) => {
+    total += dias.length;
+
+    const block = document.createElement('div');
+    block.className = 'month-block';
+    block.style.animationDelay = (0.05 * idx) + 's';
+
+    const header = document.createElement('div');
+    header.className = 'month-header';
+    header.innerHTML = `
+      <span class="month-icon">${ICONS[mes]}</span>
+      <span class="month-name">${mes}</span>
+      <div class="month-progress">
+        <span class="month-count" id="cnt-${mes}">0 / ${dias.length}</span>
+        <div class="prog-bar-wrap">
+          <div class="prog-bar" id="prog-${mes}" style="width:0%"></div>
+        </div>
+      </div>
+    `;
+
+    const grid = document.createElement('div');
+    grid.className = 'sundays-grid';
+
+    dias.forEach(({ label, fecha }) => {
+      const btn = document.createElement('button');
+      btn.className = 'sunday-btn';
+      btn.dataset.fecha = fecha;
+      btn.dataset.mes = mes;
+      btn.dataset.label = label;
+
+      const [, , dia] = fecha.split('-');
+      btn.innerHTML = `
+        <div class="check-circle">
+          <svg viewBox="0 0 10 8"><polyline points="1,4 3.5,6.5 9,1"/></svg>
+        </div>
+        <div class="btn-date">
+          <span class="dow">Domingo</span>
+          <span>${label}</span>
+        </div>
+      `;
+      btn.addEventListener('click', () => toggle(btn, fecha, mes, dias.length));
+      grid.appendChild(btn);
+    });
+
+    block.appendChild(header);
+    block.appendChild(grid);
+    container.appendChild(block);
+  });
+
+  totalPosible = total;
+  document.getElementById('total-posible').textContent = total;
+}
+
+// ── TOGGLE ───────────────────────────────────────────────
+function toggle(btn, fecha, mes, total) {
+  if (marcados.has(fecha)) {
+    marcados.delete(fecha);
+    btn.classList.remove('checked');
+  } else {
+    marcados.add(fecha);
+    btn.classList.add('checked');
+  }
+  updateCounters(mes, total);
+}
+
+function updateCounters(mes, totalMes) {
+  const delMes = MESES[mes].filter(d => marcados.has(d.fecha)).length;
+  document.getElementById('cnt-' + mes).textContent = `${delMes} / ${totalMes}`;
+  document.getElementById('prog-' + mes).style.width = ((delMes / totalMes) * 100) + '%';
+
+  const total = marcados.size;
+  document.getElementById('total-marcados').textContent = total;
+  document.getElementById('pct-asist').textContent = Math.round((total / totalPosible) * 100) + '%';
+}
+
+// ── ENVIAR ───────────────────────────────────────────────
+function enviar() {
+  const nombre = document.getElementById('nombre').value.trim();
+  const errorBox = document.getElementById('error-box');
+  const errorText = document.getElementById('error-text');
+
+  errorBox.style.display = 'none';
+
+  if (!nombre) {
+    errorText.textContent = 'Por favor escribe tu nombre completo antes de enviar.';
+    errorBox.style.display = 'block';
+    document.getElementById('nombre').focus();
+    return;
+  }
+  if (marcados.size === 0) {
+    errorText.textContent = 'Marca al menos un domingo antes de enviar tu registro.';
+    errorBox.style.display = 'block';
+    return;
+  }
+
+  const now = new Date();
+  const optsHora = { hour: '2-digit', minute: '2-digit', hour12: true };
+  const optsHoy = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const hora = now.toLocaleTimeString('es-BO', optsHora);
+  const hoy = now.toLocaleDateString('es-BO', optsHoy);
+
+  // Construir lista por mes
+  let detalles = '';
+  Object.entries(MESES).forEach(([mes, dias]) => {
+    const asistidos = dias.filter(d => marcados.has(d.fecha));
+    if (asistidos.length > 0) {
+      detalles += `\n\n📅 *${mes.toUpperCase()}* (${asistidos.length} domingo${asistidos.length > 1 ? 's' : ''})`;
+      asistidos.forEach(d => {
+        detalles += `\n  ✅ Domingo ${d.label}`;
+      });
+    }
+  });
+
+  const pct = Math.round((marcados.size / totalPosible) * 100);
+
+  const mensaje =
+`━━━━━━━━━━━━━━━━━━━━━━━━
+📖 *SEMINARIO ANTIGUO TESTAMENTO 2026*
+     Registro de Asistencia
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Alumno:* ${nombre}
+📆 *Fecha de envío:* ${hoy}
+🕐 *Hora:* ${hora}
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 *DOMINGOS ASISTIDOS:*${detalles}
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+📊 *RESUMEN*
+• Total asistencias: *${marcados.size} de ${totalPosible}*
+• Porcentaje: *${pct}%*
+• Período: Feb – Jun 2026
+
+✍️ _Registro enviado por: ${nombre}_
+━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+
+  // Toast
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+// ── INIT ─────────────────────────────────────────────────
+buildUI();
+</script>
+</body>
+</html>
